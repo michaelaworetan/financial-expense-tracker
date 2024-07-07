@@ -1,9 +1,10 @@
 const express = require('express');
 const connectDB = require('./config/db');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const cors = require('cors');
+
+//Routes
+const authRoutes = require('./routes/authRoutes');
 
 
 // Load environment variables from .env file
@@ -13,11 +14,13 @@ const app = express();
 
 // Middleware
 app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json()); // Middleware to parse JSON bodie
 
 // Connect Database
 connectDB();
 
+// Routes setup
+app.use('/api/auth', authRoutes);
 
 // Root endpoint for health check
 app.get('/', (req, res) => {
