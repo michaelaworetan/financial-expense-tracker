@@ -5,6 +5,7 @@ const cors = require('cors');
 
 //Routes
 const authRoutes = require('./routes/authRoutes');
+const expenseRoutes = require('./routes/expenseRoutes');
 
 
 // Load environment variables from .env file
@@ -21,6 +22,7 @@ connectDB();
 
 // Routes setup
 app.use('/api/auth', authRoutes);
+app.use('/api/expenses', expenseRoutes);
 
 // Root endpoint for health check
 app.get('/', (req, res) => {

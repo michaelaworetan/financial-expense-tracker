@@ -4,9 +4,6 @@ const dotenv = require('dotenv');
 // Load environment variables from .env file
 dotenv.config();
 
-console.log(process.env.MONGO_URI);
-console.log(process.env.PORT);
-
 // Function to connect to MongoDB
 const connectDB = async () => {
     try {

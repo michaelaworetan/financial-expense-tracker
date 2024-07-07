@@ -1,8 +1,6 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
-console.log(process.env.JWT_SECRET);
-
 // Middleware to authenticate the user using JWT
 const authMiddleware = async (req, res, next) => {
   // Extract the token from the Authorization header, removing the 'Bearer ' prefix
